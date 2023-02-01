@@ -1,4 +1,4 @@
 package com.example.model;
 
-public class Vet {
+public class Vet extends BaseEntity{
 }
