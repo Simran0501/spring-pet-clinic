@@ -4,8 +4,6 @@ import com.example.model.Owner;
 import com.example.model.Vet;
 import com.example.services.OwnerService;
 import com.example.services.VetService;
-import com.example.services.map.OwnerServiceMap;
-import com.example.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
