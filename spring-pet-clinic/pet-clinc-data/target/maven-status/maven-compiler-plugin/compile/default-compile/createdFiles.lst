@@ -1,0 +1,14 @@
+com/example/services/PetService.class
+com/example/model/Pet.class
+com/example/services/map/PetServiceMap.class
+com/example/services/OwnerService.class
+com/example/model/BaseEntity.class
+com/example/services/VetService.class
+com/example/model/Owner.class
+com/example/model/PetType.class
+com/example/services/map/AbstractMapService.class
+com/example/services/CrudService.class
+com/example/services/map/OwnerServiceMap.class
+com/example/model/Vet.class
+com/example/model/Person.class
+com/example/services/map/VetServiceMap.class
