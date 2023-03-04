@@ -1,10 +1,8 @@
 package com.example.bootstrap;
 
 import com.example.model.*;
-import com.example.services.OwnerService;
-import com.example.services.PetTypeService;
-import com.example.services.SpecialityService;
-import com.example.services.VetService;
+import com.example.repositories.VisitRepository;
+import com.example.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +15,14 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class DataLoader implements CommandLineRunner {
         PetType savedDogPetType = petTypeService.save(dog);
 
         PetType cat = new PetType();
-        dog.setName("Cat");
+        cat.setName("Cat");
         PetType savedCatPetType = petTypeService.save(cat);
 
         Speciality radiology = new Speciality();
@@ -78,13 +78,24 @@ public class DataLoader implements CommandLineRunner {
         simranPet.setBirthDate(LocalDate.now());
         simranPet.setName("Pixel");
         owner1.getPets().add(simranPet);
+        ownerService.save(owner1);
 
         Pet sangamPet = new Pet();
         sangamPet.setPetType(savedCatPetType);
         sangamPet.setOwner(owner2);
         sangamPet.setBirthDate(LocalDate.now());
         sangamPet.setName("Carys");
-        owner1.getPets().add(sangamPet);
+        owner2.getPets().add(sangamPet);
+        ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(sangamPet);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Carys is visiting ");
+
+        visitService.save(catVisit);
+        System.out.println("LOADED VISITS! ");
+
 
         Vet vet1 = new Vet();
         vet1.setFirstname("Alex");

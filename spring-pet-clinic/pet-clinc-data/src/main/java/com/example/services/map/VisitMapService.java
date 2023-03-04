@@ -2,8 +2,11 @@ package com.example.services.map;
 
 import com.example.model.Visit;
 import com.example.services.VisitService;
+import org.springframework.stereotype.Service;
+
 import java.util.Set;
 
+@Service
 public class VisitMapService extends AbstractMapService<Visit,Long> implements VisitService {
 
     @Override
