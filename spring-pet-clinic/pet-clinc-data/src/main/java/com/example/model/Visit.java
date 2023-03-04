@@ -14,8 +14,8 @@ public class Visit extends BaseEntity{
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "pet_id")
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "pet")
     private Pet pet;
 
     public LocalDate getDate() {
