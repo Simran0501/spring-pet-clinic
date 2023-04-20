@@ -2,6 +2,7 @@ package com.example.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,8 +15,8 @@ import java.util.Set;
 public class Owner extends Person{
 
     @Builder
-    public Owner(String firstname, String lastname, String address, String city, String telephone, Set<Pet> pets) {
-        super(firstname, lastname);
+    public Owner(Long id, String firstname, String lastname, String address, String city, String telephone, Set<Pet> pets) {
+        super(id, firstname, lastname);
         this.address = address;
         this.city = city;
         this.telephone = telephone;

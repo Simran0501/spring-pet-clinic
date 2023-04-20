@@ -12,6 +12,12 @@ import lombok.*;
 @MappedSuperclass
 public class Person extends BaseEntity{
 
+    public Person(Long id, String firstname, String lastname) {
+        super(id);
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
+
     @Column(name = "first_name")
     private String firstname;
 
